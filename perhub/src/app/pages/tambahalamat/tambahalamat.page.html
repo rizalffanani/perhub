@@ -1,0 +1,81 @@
+<ion-header no-border>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button color="def" defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title color="dark">{{jenis}} Alamat</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="form">
+    <form [formGroup]="inputForm">
+      <div class="item">
+        <div class="titel">Judul Alamat (<i>cth: <b>Alamat Kantor</b></i>)</div>
+        <div class="input">
+          <ion-input formControlName="judul"></ion-input>
+        </div>
+      </div>
+      <div class="item">
+        <div class="titel">Nama Penerima</div>
+        <div class="input">
+          <ion-input formControlName="nama"></ion-input>
+        </div>
+      </div>
+      <div class="item">
+        <div class="titel">Provinsi</div>
+        <div class="input">
+          <ion-select formControlName="idprov" interface="action-sheet" (ionChange)="getkab()">
+            <ion-select-option value="">Pilih Provinsi</ion-select-option>
+            <ion-select-option *ngFor="let p of prov" value="{{p.id}}">{{p.nama}}</ion-select-option>
+          </ion-select>
+        </div>
+      </div>
+      <div class="item">
+        <div class="titel">Kabupaten/Kota</div>
+        <div class="input">
+          <ion-select formControlName="idkab" interface="action-sheet" (ionChange)="getkec()">
+            <ion-select-option value="">Pilih Kabupaten/Kota</ion-select-option>
+            <ion-select-option *ngFor="let k of kab" value="{{k.id}}">{{k.nama}}</ion-select-option>
+          </ion-select>
+        </div>
+      </div>
+      <div class="item">
+        <div class="titel">Kecamatan</div>
+        <div class="input">
+          <ion-select formControlName="idkec" interface="action-sheet">
+            <ion-select-option value="">Pilih Kecamatan</ion-select-option>
+            <ion-select-option *ngFor="let k of kec" value="{{k.id}}">{{k.nama}}</ion-select-option>
+          </ion-select>
+        </div>
+      </div>
+      <div class="item">
+        <div class="titel">No Handphone</div>
+        <div class="input col10">
+          <ion-input formControlName="nohp"></ion-input>
+        </div>
+      </div>
+      <div class="item">
+        <div class="titel">Alamat Lengkap</div>
+        <div class="input">
+          <ion-input formControlName="alamat"></ion-input>
+        </div>
+      </div>
+      <div class="item">
+        <div class="titel">Kodepos</div>
+        <div class="input col8">
+          <ion-input formControlName="kodepos"></ion-input>
+        </div>
+      </div>
+    </form>
+    <div class="row">
+      <div class="col5">
+        <ion-button expand="full" color="def" (click)="simpan()"><ion-icon name="checkmark"></ion-icon> Simpan</ion-button>
+      </div>
+      <div class="col2"></div>
+      <div class="col5">
+        <ion-button expand="full" color="danger" (click)="back()"><ion-icon name="close"></ion-icon> Batal</ion-button>
+      </div>
+    </div>
+  </div>
+</ion-content>

@@ -1,0 +1,7 @@
+{
+  "name": "audina",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

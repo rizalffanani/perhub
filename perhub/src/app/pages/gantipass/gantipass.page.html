@@ -1,0 +1,30 @@
+<ion-header no-border>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button color="def" defaultHref="/tabs/tab4"></ion-back-button>
+    </ion-buttons>
+    <ion-title color="dark">Ubah Password</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="form">
+    <form [formGroup]="inputForm" class="formwrap">
+      <div class="item mt30">
+        <div class="titel">Password Baru</div>
+        <div class="input">
+          <ion-input formControlName="password" type="password"></ion-input>
+        </div>
+      </div>
+      <div class="item">
+        <div class="titel">Ulangi Password</div>
+        <div class="input">
+          <ion-input formControlName="pass" type="password"></ion-input>
+        </div>
+      </div>
+      <div class="row">
+        <ion-button expand="full" color="def" (click)="simpan()" class="col12"><ion-icon name="checkmark"></ion-icon> Simpan</ion-button>
+      </div>
+    </form>
+  </div>
+</ion-content>

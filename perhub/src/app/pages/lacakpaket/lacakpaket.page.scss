@@ -1,0 +1,35 @@
+.lacak{
+
+}
+
+.status{
+    margin-bottom: 20px;
+}
+.status .row{
+    margin-bottom: 14px;
+}
+.status .row .col8{
+    color: #34495e;
+    font-family: 'appbold';
+}
+.sukses{
+    background: #27ae60;
+    padding: 6px 10px;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 90%;
+}
+.onproses{
+    background: #d35400;
+    padding: 6px 10px;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 90%;
+}
+.batal{
+    padding: 6px 0px;
+    border-radius: 8px;
+    color: #c0392b;
+    font-size: 90%;
+    font-weight: bold;
+}

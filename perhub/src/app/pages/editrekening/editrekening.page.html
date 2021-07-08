@@ -1,0 +1,51 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button color="def" defaultHref="/rekening"></ion-back-button>
+    </ion-buttons>
+    <ion-title color="dark">Ubah Rekening</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="form">
+    <form [formGroup]="inputForm">
+      <div class="item">
+        <div class="titel">Pemilik Atasnama</div>
+        <div class="input">
+          <ion-input formControlName="atasnama"></ion-input>
+        </div>
+      </div>
+      <div class="item">
+        <div class="titel">Nomor Rekening</div>
+        <div class="input">
+          <ion-input formControlName="norek"></ion-input>
+        </div>
+      </div>
+      <div class="item">
+        <div class="titel">Bank</div>
+        <div class="input">
+          <ion-select formControlName="idbank" interface="action-sheet">
+            <ion-select-option value="">Pilih Bank</ion-select-option>
+            <ion-select-option *ngFor="let p of bank" value="{{p.id}}">{{p.nama}}</ion-select-option>
+          </ion-select>
+        </div>
+      </div>
+      <div class="item">
+        <div class="titel">Kantor Cabang</div>
+        <div class="input col10">
+          <ion-input formControlName="kcp"></ion-input>
+        </div>
+      </div>
+    </form>
+    <div class="row">
+      <div class="col5">
+        <ion-button expand="full" color="def" (click)="simpan()"><ion-icon name="checkmark"></ion-icon> Simpan</ion-button>
+      </div>
+      <div class="col2"></div>
+      <div class="col5">
+        <ion-button expand="full" color="danger" (click)="back()"><ion-icon name="close"></ion-icon> Batal</ion-button>
+      </div>
+    </div>
+  </div>
+</ion-content>

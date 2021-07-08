@@ -1,0 +1,62 @@
+.send{
+    font-size: 250%;
+    color: #C0A230;
+}
+.row{
+    padding: 8px 0;
+}
+.col10{
+    padding: 5px 5px 5px 10px;
+}
+.col2{
+    text-align: center;
+}
+.input{
+    border: 1px solid #ccc;
+}
+
+.pesan{
+    --background: #ecf0f1;
+}
+.pesanitem{
+    position: relative;
+    display: flex;
+    margin-top: 10px;
+}
+.pesanitem.kanan{
+    justify-content: flex-end;
+}
+.pesanitem.kiri .isipesan{
+    background: #fff;
+    padding: 6px 12px;
+    border-radius: 6px;
+    display: inline-block;
+    max-width: 70%;
+    margin-left: 14px;
+}
+.pesanitem.tengah .isipesan{
+    background: #f6e58d;
+    padding: 6px 12px;
+    border-radius: 6px;
+    display: inline-block;
+    max-width: 70%;
+    margin: auto;
+}
+.pesanitem.kanan .isipesan{
+    background: #C0A230;
+    padding: 6px 12px;
+    border-radius: 6px;
+    display: inline-block;
+    max-width: 70%;
+    color: #fff;
+    margin-right: 14px;
+    text-align: right;
+}
+.read{
+    font-size: 70%;
+    justify-content: end;
+    align-items: center;
+}
+.pesanload{
+    margin-bottom: 30px;
+}

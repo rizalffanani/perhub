@@ -1,0 +1,103 @@
+<ion-header no-border>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/" color="def"></ion-back-button>
+    </ion-buttons>
+    <ion-title><b>Bayar Pesanan</b></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="inputForm" class="formwrap">
+    <ion-input type="hidden" formControlName="kurir"></ion-input>
+    <ion-input type="hidden" formControlName="paket"></ion-input>
+    <ion-input type="hidden" formControlName="ongkir"></ion-input>
+    <ion-input type="hidden" formControlName="diskon"></ion-input>
+    <ion-input type="hidden" formControlName="alamat"></ion-input>
+    <ion-input type="hidden" formControlName="berat"></ion-input>
+    <ion-input type="hidden" formControlName="dari"></ion-input>
+    <ion-input type="hidden" formControlName="tujuan"></ion-input>
+    <ion-input type="hidden" formControlName="total"></ion-input>
+    <ion-input type="hidden" formControlName="saldo"></ion-input>
+    <ion-input type="hidden" formControlName="idproduk"></ion-input>
+    <ion-input type="hidden" formControlName="dropship"></ion-input>
+    <ion-input type="hidden" formControlName="dropshipnomer"></ion-input>
+    <ion-input type="hidden" formControlName="dropshipalamat"></ion-input>
+  <div class="seg">
+    <div class="segtitle">PRODUK</div>
+    <!--<div class="habis" *ngIf="stoknya == 0">
+      belum ada produk terpilih
+    </div>-->
+    <ion-list class="wrapitem" *ngIf="produk" lines="none">
+      <ion-item class="row item" *ngFor="let i of produk">
+        <div class="col3 foto" [ngStyle]="{'background-image':'url('+i.foto+')'}">
+        </div>
+        <div class="col9 right">
+            <div class="title">{{i.nama}}</div>
+            <div class="variasi">{{i.variasi}}</div>
+            <div class="jumlah">{{i.harga}} &nbsp;x{{i.jumlah}}</div>
+            <div class="ket">{{i.keterangan}}</div>
+        </div>
+      </ion-item>
+    </ion-list>
+  </div>
+  <div class="seg p14">
+    <div class="segtitle">ALAMAT PENGIRIMAN</div>
+    <!--<div class="habis" *ngIf="stoknya == 0">
+      belum ada produk terpilih
+    </div>-->
+    <div *ngIf="!kuriroke" class="kuriroke">Tunggu Sebentar...</div>
+    <div class="alamat" *ngIf="kuriroke">
+      <div class="judul">{{alamatjudul}}</div>
+      <div class="nama">Penerima: {{alamatnama}} - {{alamatnohp}}</div>
+      <div class="lengkap">{{alamatlengkap}}</div>
+    </div>
+    <ion-button *ngIf="kuriroke" type="button" expand="full" color="def" class="btn mt10" routerLink="/cekoutalamat">GANTI ALAMAT PENGIRIMAN</ion-button>
+    
+    <div class="div10"></div>
+    <div class="segtitle">KURIR & PAKET PENGIRIMAN</div>
+    <div class="pilihongkir">
+      <div *ngIf="!kuriroke" class="kuriroke">Sedang memuat perhitungan ongkos kirim...</div>
+      <ion-select *ngIf="kuriroke" formControlName="pilihongkir" class="form" interface="action-sheet" (ionChange)="cekOngkir()">
+        <ion-select-option value="" selected>Pilih Kurir Pengiriman</ion-select-option>
+        <ion-select-option *ngFor="let p of pilihanongkir" value="{{p.kurir}}-{{p.service}}-{{p.harga}}">{{p.kurir}} {{p.service}} ({{p.etd}} hari) - Rp. {{p.harga|currency:'IDR':''}}</ion-select-option>
+      </ion-select>
+    </div>
+  </div>
+  <div class="seg">
+    <div class="segtitle">DETAIL PEMBAYARAN</div>
+    <!--<div class="habis" *ngIf="stoknya == 0">
+      belum ada produk terpilih
+    </div>-->
+    <div class="bayar">
+      <div class="row">
+        <div class="col6">Harga Produk</div>
+        <div class="col6 bold right" *ngIf="harga">{{harga|currency:'IDR':'':'1.0'}}</div>
+        <div class="col6 bold right" *ngIf="!harga">0</div>
+      </div>
+      <div class="row">
+        <div class="col6">Ongkos Kirim</div>
+        <div class="col6 bold right" *ngIf="ongkir">{{ongkir|currency:'IDR':'':'1.0'}}</div>
+        <div class="col6 bold right" *ngIf="!ongkir">0</div>
+      </div>
+      <!--<div class="row green">
+        <div class="col6">Diskon</div>
+        <div class="col6 bold right" *ngIf="diskon">{{diskon|currency:'IDR':''}}</div>
+        <div class="col6 bold right" *ngIf="!diskon">0</div>
+      </div>-->
+      <div class="line"></div>
+      <div class="row">
+        <div class="col6">Total</div>
+        <div class="col6 bold right" *ngIf="total">{{total|currency:'IDR':'':'1.0'}}</div>
+        <div class="col6 bold right" *ngIf="!total">0</div>
+      </div>
+    </div>
+  </div>
+    </form>
+</ion-content>
+<ion-footer lines="none">
+  <div class="btnwrap">
+    <ion-button *ngIf="isoke" expand="full" class="bg2" (click)="buatPesanan()">BUAT PESANAN &nbsp;<ion-icon class="btnicon" name="ios-arrow-dropright-circle"></ion-icon></ion-button>
+    <ion-button *ngIf="!isoke" expand="full" color="medium">informasi belum lengkap</ion-button>
+  </div>
+</ion-footer>

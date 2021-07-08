@@ -1,0 +1,54 @@
+.kosong{
+    padding: 40px 20px;
+    margin-top: 30vh;
+}
+ion-icon{
+    font-size: 400%;
+}
+.foto{
+    height: 23vw;
+    background-size: cover;
+    background-position: center center;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.item{
+    padding: 10px 0 14px 0;
+    border-bottom: 1px solid #ecf0f1;
+}
+.item .right{
+    padding: 10px;
+}
+.item .title{
+    padding: 0;
+    text-align: left;
+    margin: 0;
+    font-size: 100%;
+}
+.item .variasi{
+    color: #2c3e50;
+    font-size: 80%;
+    text-align: left;
+}
+.item .jumlah{
+    font-size: 90%;
+    font-weight: bold;
+    text-align: left;
+}
+.icon{
+    font-size: 8px;
+}
+
+.btnwrap{
+    padding: 10px;
+}
+.bg2{
+    --background: #2c3e50;
+}
+.btnicon{
+    font-size: 12pt;
+}
+.red{
+    color: #c0392b;
+}

@@ -1,0 +1,70 @@
+.menu{
+
+}
+.menu ion-item{
+    border-bottom: 2px solid #eee;
+    padding: 8px 0;
+    font-size: 110%;
+}
+.menu ion-icon{
+    width: 20vw;
+    font-size: 160%;
+}
+
+.userdetail{
+    padding: 8vw;
+    min-height: 23vh;
+    background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgb(244, 255, 253) 0%, rgb(184, 255, 241) 90% );
+}
+.userdetail .nama{
+    font-family: "appbold";
+    font-size: 140%;
+    color: #2980b9;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+}
+.userdetail .level{
+    font-size: 90%;
+    background: #2c3e50;
+    color: #fff;
+    letter-spacing: 2px;
+    font-style: italic;
+    padding: 4px 8px;
+    border-radius: 6px;
+    display: inline-block;
+    margin-bottom: 7vh;
+}
+.usersaldowrap{
+    position: relative;
+    min-height: 17vh;
+    width: 100%;
+    justify-content: center;
+}
+.usersaldo{
+    position: absolute;
+    box-sizing: border-box;
+    padding: 6vw;
+    width: 90vw;
+    left: 50vw;
+    margin-left: -45vw;
+    border-radius: 12px;
+    margin-top: -8vh;
+    box-shadow: 0px 0px 4px #ccc;
+    background-image: linear-gradient( 135.9deg, rgb(22, 160, 133) 30%, rgb(81, 218, 190) 80% );
+}
+.usersaldo .titel{
+    font-size: 120%;
+    color: #fff;
+    font-family: "appbold";
+}
+.usersaldo .saldo{
+    font-size: 240%;
+    color: #fffc49;
+    font-family: "appblack";
+    margin-bottom: 12px;
+}
+.usersaldo .tombol ion-button{
+    border-radius: 4px;
+    font-family: "appbold";
+}

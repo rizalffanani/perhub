@@ -1,0 +1,78 @@
+<ion-header no-border>
+  <ion-toolbar>
+    <ion-buttons slot="start" style="text-align: center;margin-left: 10px;">
+      <ion-icon color="def" name="arrow-back" style="font-size:160%;" routerLink="/tabs/tab3"></ion-icon>
+    </ion-buttons>
+    <ion-title color="dark">Bayar Pesanan</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <div class="wrap">
+    <div class="total">
+      <div class="text">TOTAL INVOICE</div>
+      <div class="inv" *ngIf="total">Rp {{total}}</div>
+      <div class="inv" *ngIf="!total">Rp 0</div>
+    </div>
+    <div class="pilihmetode" *ngIf="midtrans_cek != null">
+      <div [innerHTML]="midtrans_cek" class="mb-30"></div>
+      <ion-button color="primary" expand="full" (click)="ubahPembayaran()">UBAH PEMBAYARAN</ion-button>
+    </div>
+    <div class="pilihmetode" *ngIf="midtrans_cek == null">
+      <div class="text mb10">
+        Pilih Metode Pembayaran:
+      </div>
+      <div class="metode row">
+        <div class="col6" *ngIf="payment_midtrans == 1 || payment_ipaymu == 1">
+          <div class="label" *ngIf="jenis == 1"><ion-icon name="checkmark-circle"></ion-icon></div>
+          <div class="metode-item aktif" *ngIf="jenis == 1">OTOMATIS</div>
+          <div class="metode-item" *ngIf="jenis != 1" (click)="otomatis()">OTOMATIS</div>
+        </div>
+        <div class="col6" *ngIf="payment_transfer == 1">
+          <div class="label" *ngIf="jenis == 2"><ion-icon name="checkmark-circle"></ion-icon></div>
+          <div class="metode-item aktif" *ngIf="jenis == 2">MANUAL</div>
+          <div class="metode-item" *ngIf="jenis != 2" (click)="manual()">MANUAL</div>
+        </div>
+      </div>
+    </div>
+    <div class="otomatis" *ngIf="jenis == 1 && midtrans_cek == null">
+      <div class="text mb10" *ngIf="tipe == ''">
+        Berikut kanal yg didukung untuk pembayaran otomatis:
+      </div>
+      <div class="img" *ngIf="tipe == ''">
+        <img src="../assets/img/ipaymu.png" />
+      </div>
+      <div class="text mb10" *ngIf="tipe != ''">
+        Silahkan melakukan transfer sesuai total pembayaran diatas ke rekening berikut:
+      </div>
+      <div class="rekening" *ngIf="tipe != ''">
+        <div class="bank">{{channel}}</div>
+        <div class="norek">{{kode}}</div>
+        <div class="atasnama">{{nama}}</div>
+      </div>
+      <ion-button *ngIf="tipe != ''" color="danger" expand="full" routerLink="/bayarproses/{{idbayar}}">UBAH PEMBAYARAN</ion-button>
+      <ion-button *ngIf="tipe == '' && payment_ipaymu == 1" size="large" color="primary" expand="full" routerLink="/bayarproses/{{idbayar}}">BAYAR IPAYMU</ion-button>
+      <ion-button *ngIf="tipe == '' && payment_midtrans == 1" size="large" color="primary" expand="full" routerLink="/bayarprosesmidtrans/{{idbayar}}">BAYAR MIDTRANS</ion-button>
+    </div>
+    <div class="transfer" *ngIf="jenis == 2 && midtrans_cek == null">
+      <div class="text mb10">
+        Silahkan melakukan transfer sesuai total pembayaran diatas ke rekening berikut:
+      </div>
+      <div class="rekening" *ngFor="let r of rekening">
+        <div class="bank">{{r.bank}} Cab. {{r.kcp}}</div>
+        <div class="norek">{{r.norek}}</div>
+        <div class="atasnama">a/n {{r.atasnama}}</div>
+      </div>
+      <div class="text">
+        <b>PENTING:</b>
+        <ul class="list">
+          <li>Mohon lakukan pembayaran dalam 1x24 jam</li>
+          <li>Sistem akan otomatis mendeteksi apabila pembayaran sudah masuk</li>
+          <li>Apabila sudah transfer dan status pembayaran belum berubah, mohon konfirmasi pembayaran</li>
+          <li>Pesanan akan dibatalkan secara otomatis jika Anda tidak melakukan pembayaran</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</ion-content>

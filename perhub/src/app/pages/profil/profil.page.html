@@ -1,0 +1,46 @@
+<ion-header no-border>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button color="def" defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title color="dark">Pengaturan Profil</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="form">
+    <form [formGroup]="inputForm" class="formwrap">
+      <div class="item mt30">
+        <div class="titel">Nama</div>
+        <div class="input">
+          <ion-input formControlName="nama"></ion-input>
+        </div>
+      </div>
+      <div class="item">
+        <div class="titel">No Handphone</div>
+        <div class="input">
+          <ion-input formControlName="nohp"></ion-input>
+        </div>
+      </div>
+      <div class="item">
+        <div class="titel">Email</div>
+        <div class="input">
+          <ion-input formControlName="email"></ion-input>
+        </div>
+      </div>
+      <div class="item">
+        <div class="titel">Jenis Kelamin</div>
+        <div class="input">
+          <ion-select formControlName="kelamin" interface="action-sheet">
+            <ion-select-option value="">Pilih Jenis Kelamin</ion-select-option>
+            <ion-select-option value="1">Laki-Laki</ion-select-option>
+            <ion-select-option value="2">Perempuan</ion-select-option>
+          </ion-select>
+        </div>
+      </div>
+      <div class="row">
+        <ion-button expand="full" color="def" (click)="simpan()" class="col12"><ion-icon name="checkmark"></ion-icon> Simpan</ion-button>
+      </div>
+    </form>
+  </div>
+</ion-content>

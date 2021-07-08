@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="tabs"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Live Chat</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="pesan" #pesano>
+  <div class="pesanload">
+    <div *ngFor="let p of pesan" class="pesanitem {{p.letak}}">
+      <div class="isipesan">
+        {{p.pesan}}<br *ngIf="p.letak != 'tengah'"/>
+        <span *ngIf="p.baca == 0 && p.letak != 'tengah'" class="read">{{p.waktu}}</span>&nbsp;
+        <ion-icon *ngIf="p.baca == 0 && p.letak != 'tengah'" name="checkmark"></ion-icon>
+        <span *ngIf="p.baca == 1 && p.letak != 'tengah'" class="read">{{p.waktu}}</span>&nbsp;
+        <ion-icon *ngIf="p.baca == 1 && p.letak != 'tengah'" name="checkmark-done"></ion-icon>
+      </div>
+    </div>
+  </div>
+</ion-content>
+
+<ion-footer lines="none">
+  <div class="row">
+    <div class="col10">
+      <ion-input type="text" class="input" (keyup.enter)="kirimPesan()" [(ngModel)]="pesanform"></ion-input>
+    </div>
+    <div class="col2" slot="end">
+      <ion-icon name="send" class="send" (click)="kirimPesan()"></ion-icon>
+    </div>
+  </div>
+</ion-footer>

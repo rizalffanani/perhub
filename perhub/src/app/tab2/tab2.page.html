@@ -1,0 +1,31 @@
+<ion-content>
+  <div class="kosong" *ngIf="!items">
+    <div class="title">
+      <ion-icon name="basket" color="medium"></ion-icon><p></p>
+      Keranjang Belanja Kosong
+    </div>
+  </div>
+  <ion-list *ngIf="items" lines="none">
+    <ion-item class="row item" *ngFor="let i of items">
+      <div class="col3 foto" [ngStyle]="{'background-image':'url('+i.foto+')'}">
+      </div>
+      <div class="col10 right row">
+        <div class="col9">
+          <div class="title">{{i.nama}}</div>
+          <div class="variasi">{{i.variasi}}</div>
+          <div class="jumlah" *ngIf="i.stok >= i.jumlah">{{i.jumlah}} pcs</div>
+          <div class="jumlah red" *ngIf="i.stok < i.jumlah">stok habis</div>
+          <div class="variasi">{{i.keterangan}}</div>
+        </div>
+        <div class="col2">
+          <div class="icon" (click)="hapusKeranjang(i.id)"><ion-icon name="trash" color="danger"></ion-icon></div>
+        </div>
+      </div>
+    </ion-item>
+  </ion-list>
+</ion-content>
+<ion-footer *ngIf="items" lines="none">
+  <div class="btnwrap">
+    <ion-button expand="full" class="bg2" routerLink="/cekout">SELESAIKAN PESANAN &nbsp;<ion-icon class="btnicon" name="ios-arrow-dropright-circle"></ion-icon></ion-button>
+  </div>
+</ion-footer>

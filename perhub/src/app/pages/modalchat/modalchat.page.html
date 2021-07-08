@@ -1,0 +1,20 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-button (click)="tutupModal()"><ion-icon name="close"></ion-icon></ion-button>
+    </ion-buttons>
+    <ion-title>Chat</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-button (click)="chat()" color="def" *ngIf="login" expand="full" size="large" class="mb20 mt40">
+    <ion-icon name="chatbubbles"></ion-icon>&nbsp;Live Chat
+  </ion-button>
+  <ion-button (click)="logins()" *ngIf="!login" color="def" expand="full" size="large" class="mb20 mt40">
+    <ion-icon class="chaticon" name="chatbubbles"></ion-icon>&nbsp;Live Chat
+  </ion-button>
+  <ion-button (click)="wasap()" color="success" expand="full" size="large">
+    <ion-icon class="chaticon" name="logo-whatsapp"></ion-icon>&nbsp;Whatsapp
+  </ion-button>
+</ion-content>

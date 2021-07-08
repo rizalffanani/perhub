@@ -1,0 +1,43 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button color="def" defaultHref="/detailpesanan/{{id}}"></ion-back-button>
+    </ion-buttons>
+    <ion-title color="dark">lacakpaket</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="lacak">
+    <div class="status">
+      <div class="row">
+        <div class="col4">No Resi</div>
+        <div class="col8">{{resi}}</div>
+      </div>
+      <div class="row">
+        <div class="col4">Tgl Update</div>
+        <div class="col8">{{tgl}}</div>
+      </div>
+      <div class="row">
+        <div class="col4">Status</div>
+        <div class="col8">
+          <i class="sukses" *ngIf="sukses && status == 2">terkirim</i>
+          <i class="batal" *ngIf="!sukses">resi tidak ditemukan</i>
+          <i class="onproses" *ngIf="sukses && status == 1">proses pengiriman</i>
+        </div>
+      </div>
+    </div>
+    <div class="proses">
+      <div class="row" *ngFor="let p of proses">
+        <div class="col12">{{p.tgl}}</div>
+        <div class="col4">{{p.city}}</div>
+        <div class="col8"><i>{{p.desc}}</i></div>
+      </div>
+      <div class="error row" *ngIf="sukses && proses.length == 0">
+        <div class="col12">{{tgl}}</div>
+        <div class="col4">-</div>
+        <div class="col8"><i>Pesanan sedang diproses</i></div>
+      </div>
+    </div>
+  </div>
+</ion-content>

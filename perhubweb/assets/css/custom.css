@@ -1,0 +1,98 @@
+.main_menu > li:hover > a {
+	border-bottom-color: #C0A230;
+}
+
+.sub_menu > li:hover > a {
+	color: #C0A230
+}
+
+li.sale-noti > a {
+	color: #C0A230;
+}
+
+a:hover {
+	color: #C0A230;
+}
+
+.bg-gold {
+	background-color: #C0A230;
+}
+
+.s-text2 {
+	color: white;
+}
+
+.hov1:hover {
+	border: 1px solid #C0A230;
+	background-color: white;
+	color: #C0A230;
+}
+
+.arrow-slick1:hover {
+	background-color: #C0A230;
+}
+
+.hov-bg-gold:hover {
+	background-color: #C0A230;
+	color: white;
+}
+
+.font-gold {
+	color: #C0A230;
+}
+
+.effect1-line {
+	background-color: #C0A230;
+}
+
+.bg0-hov:hover {
+	background-color: #C0A230;
+}
+
+.item-menu-mobile {
+	background-color: #C0A230;
+}
+
+.side-menu .sub-menu a:hover {
+	color: #C0A230 !important;
+}
+
+.select2-container .select2-results__option[aria-selected="true"] {
+    background-color: #C0A230;
+}
+
+.select2-container .select2-results__option--highlighted[aria-selected] {
+  background-color: #C0A230;
+}
+
+.select2-container .select2-results__option--highlighted[aria-selected="true"] {
+	background-color: #C0A230;
+}
+
+.swal-button {
+	background-color: #C0A230;
+}
+
+.swal-button:hover {
+	background-color: #af942f;
+}
+
+.swal-button:active {
+	background-color: #967f29;
+}
+
+.color0-hov:hover {
+	color: #C0A230;
+}
+
+.active-pagination {
+	background-color: #C0A230;
+}
+
+.item-pagination:hover {
+	background-color: #C0A230;
+}
+
+.eff2:active {
+    background-color: #C0A230;
+}

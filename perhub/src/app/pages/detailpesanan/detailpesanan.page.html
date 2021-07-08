@@ -1,0 +1,72 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button color="def" defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title color="dark">Detail Pesanan</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="content">
+    <div class="title row">
+      <div class="col10">
+        <ion-icon name="file-tray-stacked"></ion-icon>&nbsp;
+        Status Pesanan
+      </div>
+    </div>
+    <div class="desc">
+      <div class="status red" *ngIf="status == 0">BELUM BAYAR</div>
+      <div class="status blue" *ngIf="status == 1">DIKEMAS</div>
+      <div class="status green" *ngIf="status == 2">DIKIRIM</div>
+      <div class="status green" *ngIf="status == 3">SELESAI</div>
+      <div class="status red" *ngIf="status == 4">DIBATALKAN</div>
+    </div>
+  </div>
+  <div class="content" routerLink="/lacakpaket/{{id}}">
+    <div class="title row">
+      <div class="col10">
+        <fa-icon [icon]="shipping"></fa-icon>&nbsp;
+        Pengiriman
+      </div>
+      <div class="col2 right"><ion-icon name="chevron-forward" color="def" slot="end"></ion-icon></div>
+    </div>
+    <div class="desc" *ngFor="let a of alamat">
+      <b>{{a.nama}}</b> ({{a.nohp}})<br/>
+      {{a.alamat}}, {{a.kec}}<br/>
+      {{a.kab}} {{a.kodepos}}
+    </div>
+  </div>
+  <div class="content">
+    <div class="title row">
+      <div class="col10">
+        <fa-icon [icon]="box"></fa-icon>&nbsp;
+        Rincian Pesanan
+      </div>
+    </div>
+    <div class="rincian row">
+      <div class="col6">Harga Produk</div>
+      <div class="col6 right">{{harga}}</div>
+    </div>
+    <div class="rincian row">
+      <div class="col6">Ongkos Kirim</div>
+      <div class="col6 right">{{ongkir}}</div>
+    </div>
+    <div class="rincian row">
+      <div class="col6"><b>Total Bayar</b></div>
+      <div class="col6 right"><b>{{total}}</b></div>
+    </div>
+  </div>
+    <ion-list *ngIf="produk" lines="none">
+      <ion-item class="row item" *ngFor="let i of produk">
+        <div class="col3 foto" [ngStyle]="{'background-image':'url('+i.foto+')'}">
+        </div>
+        <div class="col9 right">
+          <div class="title">{{i.nama}}</div>
+          <div class="variasi">{{i.variasi}}</div>
+          <div class="jumlah">{{i.harga}} x {{i.jumlah}}pcs</div>
+          <div class="variasi">{{i.keterangan}}</div>
+        </div>
+      </ion-item>
+    </ion-list>
+</ion-content>

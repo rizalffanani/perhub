@@ -1,0 +1,31 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button color="def" defaultHref="/tabs/tab4"></ion-back-button>
+    </ion-buttons>
+    <ion-title color="dark">Daftar Alamat</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" routerLink="/editalamat/0">
+    <ion-fab-button color="success">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <div class="notif">
+    untuk menambahkan alamat baru, klik tombol (<ion-icon name="add"></ion-icon>) di pojok kanan bawah
+  </div>
+
+  <div class="alamat row" *ngFor="let res of hasil" (click)="pilihaksi(res.id)">
+    <div class="col10">
+      <div class="judul">{{res.judul}}</div>
+      <div class="nama">{{res.nama}} - {{res.nohp}}</div>
+      <div class="lengkap">{{res.alamat}}<br/>{{res.kec}},&nbsp;{{res.kab}}&nbsp;{{res.kodepos}}</div>
+    </div>
+    <div class="col2">
+      <ion-icon color="success" *ngIf="res.status == 1" name="home"></ion-icon>
+    </div>
+  </div>
+</ion-content>

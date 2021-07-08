@@ -1,0 +1,71 @@
+<ion-header class="ion-no-border">
+  <div class="row top">
+    <div class="col2">
+      <img src="/assets/logo.min.png" alt="logo" />
+    </div>
+    <div class="col8 row search">
+      <div class="col1">
+        <fa-icon [icon]="cari"></fa-icon>
+      </div>
+      <div class="col11">
+        <input placeholder="Cari Produk" />
+      </div>
+    </div>
+    <div class="col2">
+      <div class="chatbtn" (click)="presentModal()">
+        <ion-icon class="chaticon" name="chatbubbles"></ion-icon>
+        <div *ngIf="notif != 0" class="notif">{{notif}}</div>
+      </div>
+    </div>
+  </div>
+</ion-header>
+<ion-content>
+  <!--
+  <div class="row">
+    <div class="col6 logo">
+      <img src="/assets/logo.png" alt="logo" />
+    </div>
+    <div class="col6">
+      <div class="chatbtn" *ngIf="login" routerLink="/chat">
+        <ion-icon class="chaticon" name="chatboxes"></ion-icon>
+        <div *ngIf="notif != 0" class="notif">{{notif}}</div>
+      </div>
+      <div class="chatbtn" *ngIf="!login" routerLink="/login">
+        <ion-icon class="chaticon" name="chatboxes"></ion-icon>
+      </div>
+    </div>
+  </div>
+  -->
+  <ion-slides [options]="slideOpts" class="slider" pager="true">
+      <ion-slide *ngFor="let s of slider">
+          <img src="{{s.foto}}" class="img" />
+      </ion-slide>
+      <ion-slide *ngIf="!slider">
+          <img src="/assets/img/belumadapromo.png" class="img">
+      </ion-slide>
+  </ion-slides>
+  <div class="row kategori">
+    <div class="col4" *ngFor="let r of kategori" routerLink="/kategori/{{r.id}}">
+      <div class="foto" [ngStyle]="{'background-image':'url('+r.foto+')'}"></div>
+      <div class="cat-title">{{r.nama}}</div>
+    </div>
+  </div>
+  <div class="newproduct">
+    <div class="title">
+      NEW PRODUCTS
+      <div class="line"></div>
+    </div>
+    <div class="row">
+      <div class="col6" *ngFor="let p of produk" (click)="loadProduk(p.id)">
+        <div class="img" [ngStyle]="{'background-image':'url('+p.foto+')'}"></div>
+        <div class="prod-title">{{p.nama}}</div>
+        <div class="prod-harga">{{p.harga}}</div>
+        <div class="row">
+          <div class="prod-ulasan col8">{{p.ulasan}} ulasan</div>
+          <div class="prod-nilai col4"><ion-icon name="star"></ion-icon> {{p.nilai}}</div>
+        </div>
+        <div *ngIf="p.po > 0" class="prod-po">PRE ORDER</div>
+      </div>
+    </div>
+  </div>
+</ion-content>

@@ -1,0 +1,50 @@
+<ion-header no-border>
+  <ion-toolbar>
+    <ion-title color="dark">Status Pesanan</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="kosong" *ngIf="items.length == 0">
+    <div class="title">
+      <ion-icon name="cart" color="medium"></ion-icon><p></p>
+      Belum ada pesanan
+    </div>
+  </div>
+  <div *ngIf="items.length > 0">
+    <div class="item" *ngFor="let i of items">
+      <div class="click" routerLink="/detailpesanan/{{i.id}}">
+        <div class="row">
+          <div class="col6 orderid">{{i.orderid}}</div>
+          <div class="col6 status red" *ngIf="i.status == 0">BELUM BAYAR</div>
+          <div class="col6 status blue" *ngIf="i.status == 1">DIKEMAS</div>
+          <div class="col6 status green" *ngIf="i.status == 2">DIKIRIM</div>
+          <div class="col6 status green" *ngIf="i.status == 3">SELESAI</div>
+          <div class="col6 status red" *ngIf="i.status == 4">DIBATALKAN</div>
+        </div>
+        <div class="row">
+          <div class="col3 foto" [ngStyle]="{'background-image':'url('+i.foto+')'}">
+          </div>
+          <div class="col9">
+            <div class="titel">{{i.nama}}</div>
+            <div class="variasi">{{i.variasi}}</div>
+            <div class="jumlah">{{i.jml}} pcs</div>
+          </div>
+          <div class="col12"> 
+            Total Pembayaran: <b>Rp {{i.total|currency:'IDR':''}}</b>
+          </div>
+        </div>
+      </div>
+      <div class="col12"> 
+        <ion-button color="def" *ngIf="i.status == 0" routerLink="/bayarpesanan/{{i.idbayar}}">Bayar Pesanan</ion-button>
+        <ion-button color="danger" *ngIf="i.status == 0" (click)="hapusPesanan(i.idbayar)">Batalkan</ion-button>
+        <ion-button color="danger" *ngIf="i.status == 4" (click)="hapusPesanan(i.idbayar)">Hapus</ion-button>
+      </div>
+    </div>
+  </div>
+  <ion-infinite-scroll threshold="100px" (ionInfinite)="loadMore($event)">
+    <ion-infinite-scroll-content loadingSpinner="circular" loadingText="memuat...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+  <div class="mt50 mb50 divider"></div>
+</ion-content>

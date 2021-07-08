@@ -1,0 +1,55 @@
+<!--<ion-header>
+  <ion-toolbar>
+    <ion-title color="medium"><b>Pengaturan Akun</b></ion-title>
+  </ion-toolbar>
+</ion-header>-->
+
+<ion-content>
+  <div class="userdetail">
+    <div class="nama">{{nama}}</div>
+    <span class="level">{{level}}</span>
+  </div>
+  <div class="usersaldowrap">
+    <div class="usersaldo">
+      <div class="titel">SALDO</div>
+      <div class="saldo" *ngIf="saldo">Rp {{saldo|currency:'IDR':'':'1.0'}}</div>
+      <div class="saldo" *ngIf="!saldo">Rp 0</div>
+      <!--
+      <div class="tombol row">
+        <div class="col6">
+          <ion-button color="success" expand="full" size="small"><ion-icon name="cloud-upload"></ion-icon>&nbsp;TOP UP</ion-button>
+        </div>
+        <div class="col6">
+          <ion-button color="danger" expand="full" size="small"><ion-icon name="cloud-download"></ion-icon>&nbsp;TARIK</ion-button>
+        </div>
+      </div>
+      -->
+    </div>
+  </div>
+  <ion-list class="menu">
+    <ion-item routerLink="/profil" lines="none">
+      <ion-icon name="person-circle" color="primary"></ion-icon>
+      <ion-label>Profil Pengguna</ion-label>
+      <ion-icon name="chevron-forward" color="dark" slot="end"></ion-icon>
+    </ion-item>
+    <ion-item routerLink="/rekening" lines="none">
+      <ion-icon name="card" color="primary"></ion-icon>
+      <ion-label>Rekening Bank</ion-label>
+      <ion-icon name="chevron-forward" color="dark" slot="end"></ion-icon>
+    </ion-item>
+    <ion-item routerLink="/alamat" lines="none">
+      <ion-icon name="location" color="primary"></ion-icon>
+      <ion-label>Alamat Pengiriman</ion-label>
+      <ion-icon name="chevron-forward" color="dark" slot="end"></ion-icon>
+    </ion-item>
+    <ion-item routerLink="/gantipass" lines="none">
+      <ion-icon name="key" color="primary"></ion-icon>
+      <ion-label>Ubah Password</ion-label>
+      <ion-icon name="chevron-forward" color="dark" slot="end"></ion-icon>
+    </ion-item>
+    <ion-item (click)="logout()" lines="none">
+      <ion-icon name="power" color="danger"></ion-icon>
+      <ion-label>Logout</ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

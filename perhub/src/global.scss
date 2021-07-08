@@ -1,0 +1,252 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import '~@ionic/angular/css/display.css';
+
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+
+
+@font-face {
+    font-family: 'appdefault';
+    src: url('/assets/fonts/Montserrat-Regular.ttf');
+}
+@font-face {
+    font-family: 'appblack';
+    src: url('/assets/fonts/Montserrat-Bold.ttf');
+}
+@font-face {
+    font-family: 'appbold';
+    src: url('/assets/fonts/Montserrat-SemiBold.otf');
+}
+*{
+    font-family: appdefault;
+}
+
+ion-button{
+  border-radius: 8px;
+  overflow: hidden;
+}
+ion-tab-bar ion-icon{
+  font-size: 250%;
+}
+
+.div10{height:10px;}
+.div20{height:20px;}
+.div30{height:30px;}
+.div40{height:40px;}
+.mt10{ margin-top: 10px; }
+.mt20{ margin-top: 20px; }
+.mt30{ margin-top: 30px; }
+.mt40{ margin-top: 40px; }
+.mt50{ margin-top: 50px; }
+.mb10{ margin-bottom: 10px; }
+.mb20{ margin-bottom: 20px; }
+.mb30{ margin-bottom: 30px; }
+.mb40{ margin-bottom: 40px; }
+.mb50{ margin-bottom: 50px; }
+.right{ text-align: right;align-items: flex-end; }
+.left{ text-align: left; }
+.center{ text-align: center; }
+
+.text-uppercase{
+    text-transform: uppercase;
+}
+.text-success{
+    color: var(--ion-color-success);
+}
+.text-danger{
+    color: var(--ion-color-danger);
+}
+.font-weight-bold{
+    font-weight: bold;
+}
+
+.btn-primary{
+  --background: #2c3e50;
+}
+.tulbar{
+    background: #2c3e50;
+}
+.logo{
+    padding: 20px;
+    margin: 0 auto 0px auto;
+    width: 100%;
+}
+.logo img{
+  width: 40vw;
+}
+
+.col-warning{
+  color: #d35400;
+}
+
+/* MENU */
+.menuheader{
+  padding: 10px;
+  box-sizing: border-box;
+}
+.menuheader .col4{
+  text-align: right;
+}
+.menu-icon{
+  height: 24px;
+}
+.menutitle .nama{
+  font-weight: bold;
+}
+.menutitle .role{
+  font-size: 70%;
+  color: #bdc3c7;
+}
+.menuleft{
+  margin-top: 20px;
+}
+.menuleft .child{
+  border-left: 6px solid transparent;
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+}
+.menuleft .child.active{
+  border-color: #27ae60;
+  background: #fff;
+}
+.menuleft .child .icon{
+  height: 20px;
+}
+
+.divider{
+  height: 20px;
+}
+
+/* COLOR MODIF */
+.color2{
+  color: #2c3e50;
+}
+
+.title{
+  font-weight: 900;
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 120%;
+}
+
+/*.col1, .col2, .col3, .col4, .col5, .col6, .col7, .col8, .col9, .col10, .col11, .col12 {
+    display: inline-block;
+}*/
+.row{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.col12 {
+  -webkit-box-flex: 0;
+  width: 100%;
+  flex: 0 0 100%;
+}
+.col11 {
+  -webkit-box-flex: 0;
+  width: 91.66666667%;
+  flex: 0 0 91.66666667%;
+}
+.col10 {
+  -webkit-box-flex: 0;
+  width: 83.33333333%;
+  flex: 0 0 83.33333333%;
+}
+.col9 {
+  -webkit-box-flex: 0;
+  width: 75%;
+  flex: 0 0 75%;
+}
+.col8 {
+  -webkit-box-flex: 0;
+  width: 66.66666667%;
+  flex: 0 0 66.66666667%;
+}
+.col7 {
+  -webkit-box-flex: 0;
+  width: 58.33333333%;
+  flex: 0 0 58.33333333%;
+}
+.col6 {
+  -webkit-box-flex: 0;
+  width: 50%;
+  flex: 0 0 50%;
+}
+.col5 {
+  -webkit-box-flex: 0;
+  width: 41.66666667%;
+  flex: 0 0 41.66666667%;
+}
+.col4 {
+  -webkit-box-flex: 0;
+  width: 33.33333333%;
+  flex: 0 0 33.33333333%;
+}
+.col3 {
+  -webkit-box-flex: 0;
+  width: 25%;
+  flex: 0 0 25%;
+}
+.col2 {
+  -webkit-box-flex: 0;
+  width: 16.66666667%;
+  flex: 0 0 16.66666667%;
+}
+.col1 {
+  -webkit-box-flex: 0;
+  width: 8.33333333%;
+  flex: 0 0 8.33333333%;
+}
+
+/* SLIDER */
+.slider{
+  padding-bottom: 20px;
+  padding-top: 6px;
+}
+.slider ion-slide{
+  padding: 0 10px;
+}
+.slider .img{
+  border-radius: 6px;
+  width: 98%;
+  box-shadow: 0px 0px 5px #bdc3c7;
+}
+.slider .swiper-pagination{
+    bottom: -4px;
+    text-align: left;
+    padding-left: 20px;
+}
+.sliderfoto .swiper-pagination .swiper-pagination-bullet,
+.slider .swiper-pagination .swiper-pagination-bullet{
+    margin: 0 1px;
+    background: #000;
+}
+.sliderfoto .swiper-pagination .swiper-pagination-bullet-active,
+.slider .swiper-pagination .swiper-pagination-bullet-active{
+    background: #2c3e50;
+    padding-left: 20px;
+    border-radius: 20px;
+}
